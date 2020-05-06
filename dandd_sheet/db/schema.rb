@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 3) do
     t.integer "wisdom"
     t.integer "charisma"
     t.string "info"
-    t.integer "AC"
+    t.integer "ac"
     t.integer "hit_points"
   end
 

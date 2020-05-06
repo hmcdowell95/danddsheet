@@ -1,0 +1,17 @@
+<h1>Check out everyones character sheets for ideas!</h1>
+<ul>
+<% @characters.each do |x| %>
+  <li><%= x.class_name %></li><br>
+  <li><%= x.name %></li><br>
+  <li><%= x.strength %></li><br>
+  <li><%= x.dexterity %></li><br>
+  <li><%= x.constitution %></li><br>
+  <li><%= x.intelligence %></li><br>
+  <li><%= x.wisdom %></li><br>
+  <li><%= x.charisma %></li><br>
+  <li><%= x.ac %></li><br>
+  <li><%= x.hit_points %></li><br>
+  <li><%= x.info %></li><br>
+  <br>
+<% end %>
+</ul>
