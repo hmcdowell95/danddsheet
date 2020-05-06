@@ -4,7 +4,7 @@ class UserController < ApplicationController
     if session[:user_id]
       redirect "/"
     else
-      erb :"/users/signup"
+      erb :"/signup"
     end
   end
   
@@ -14,9 +14,9 @@ class UserController < ApplicationController
     else
       redirect "/signup"
     end
-    if @user.email != "" && @user.username != ""
+    if @user.username != ""
       session[:user_id] = @user.id
-      redirect "/"
+      redirect "/index"
     else
       redirect "/signup"
     end
@@ -26,7 +26,7 @@ class UserController < ApplicationController
     if session[:user_id]
       redirect "/"
     else
-      erb :"/users/login"
+      erb :"/login"
     end
   end
   
