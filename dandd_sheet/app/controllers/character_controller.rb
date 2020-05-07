@@ -38,7 +38,7 @@ class CharacterController < ApplicationController
     erb :edit 
   end
   
-  patch '/sheet/:id' do
+  post '/sheet/:id' do
     @character = Character.find(params[:id])
     @character.update(params)
     redirect "/index"
