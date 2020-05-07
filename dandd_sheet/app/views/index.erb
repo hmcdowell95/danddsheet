@@ -5,18 +5,18 @@
 <h3>To View your characters --></h3><a href="/user/characters">Click Here!</a>
 <ul>
 <% @characters.each do |x| %>
-  <li><%= x.class_name %></li><br>
-  <li><%= x.name %></li><br>
-  <li><%= x.strength %></li><br>
-  <li><%= x.dexterity %></li><br>
-  <li><%= x.constitution %></li><br>
-  <li><%= x.intelligence %></li><br>
-  <li><%= x.wisdom %></li><br>
-  <li><%= x.charisma %></li><br>
-  <li><%= x.ac %></li><br>
-  <li><%= x.hit_points %></li><br>
-  <li><%= x.info %></li><br>
-  <li>To view<a href="/sheet/<%=x.id%>">click here</a></li>
+  <li>Class Name: <%= x.class_name %></li>
+  <li>Name: <%= x.name %></li>
+  <li>Strength: <%= x.strength %></li>
+  <li>Dexterity: <%= x.dexterity %></li>
+  <li>Constitution: <%= x.constitution %></li>
+  <li>Intelligence: <%= x.intelligence %></li>
+  <li>Wisdom: <%= x.wisdom %></li>
+  <li>Charisma: <%= x.charisma %></li>
+  <li>AC: <%= x.ac %></li>
+  <li>Hit Points: <%= x.hit_points %></li>
+  <li>Info: <%= x.info %></li>
+  To view<a href="/sheet/<%=x.id%>">click here</a></li>
   <br>
 <% end %>
 </ul>

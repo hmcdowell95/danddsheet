@@ -1,18 +1,18 @@
 <h1>DnD charater sheet</h1>
 
-  <li><%= @charater.class_name %></li><br>
-  <li><%= @charater.name %></li><br>
-  <li><%= @charater.strength %></li><br>
-  <li><%= @charater.dexterity %></li><br>
-  <li><%= @charater.constitution %></li><br>
-  <li><%= @charater.intelligence %></li><br>
-  <li><%= @charater.wisdom %></li><br>
-  <li><%= @charater.charisma %></li><br>
-  <li><%= @charater.ac %></li><br>
-  <li><%= @charater.hit_points %></li><br>
-  <li><%= @charater.info %></li><br>
+  <li><%= @character.class_name %></li><br>
+  <li><%= @character.name %></li><br>
+  <li><%= @character.strength %></li><br>
+  <li><%= @character.dexterity %></li><br>
+  <li><%= @character.constitution %></li><br>
+  <li><%= @character.intelligence %></li><br>
+  <li><%= @character.wisdom %></li><br>
+  <li><%= @character.charisma %></li><br>
+  <li><%= @character.ac %></li><br>
+  <li><%= @character.hit_points %></li><br>
+  <li><%= @character.info %></li><br>
   <br>
-  <% if session[:user_id] == @charater.user.id%>
-  <form action="/sheet/<%=@charater.id%>/edit" method="post"><input type="submit" value="Edit"></form>
+  <% if session[:user_id] == @character.user.id%>
+  <form action="/sheet/<%=@character.id%>/edit" method="post"><input type="submit" value="Edit"></form>
   <form action="/sheet/<%=@character.id%>/delete" method="post"><input type="submit" value="Delete"></form>
   <% end %>
