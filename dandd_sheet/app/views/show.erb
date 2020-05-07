@@ -1,16 +1,16 @@
 <h1>DnD charater sheet</h1>
 
-  <li><%= @character.class_name %></li><br>
-  <li><%= @character.name %></li><br>
-  <li><%= @character.strength %></li><br>
-  <li><%= @character.dexterity %></li><br>
-  <li><%= @character.constitution %></li><br>
-  <li><%= @character.intelligence %></li><br>
-  <li><%= @character.wisdom %></li><br>
-  <li><%= @character.charisma %></li><br>
-  <li><%= @character.ac %></li><br>
-  <li><%= @character.hit_points %></li><br>
-  <li><%= @character.info %></li><br>
+  <p><%= @character.class_name %></p><br>
+  <p><%= @character.name %></p><br>
+  <p><%= @character.strength %></p><br>
+  <p><%= @character.dexterity %></p><br>
+  <p><%= @character.constitution %></p><br>
+  <p><%= @character.intelligence %></p><br>
+  <p><%= @character.wisdom %></p><br>
+  <p><%= @character.charisma %></p><br>
+  <p><%= @character.ac %></p><br>
+  <p><%= @character.hit_points %></p><br>
+  <p><%= @character.info %></p><br>
   <br>
   <% if session[:user_id] == @character.user.id%>
   <form action="/sheet/<%=@character.id%>/edit" method="post"><input type="submit" value="Edit"></form>
