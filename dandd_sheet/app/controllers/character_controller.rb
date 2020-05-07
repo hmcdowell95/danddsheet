@@ -28,9 +28,20 @@ class CharacterController < ApplicationController
     if session[:user_id]
       @character = Character.find(params[:id])
       erb :show 
+    else 
+      redirect "/login"
     end
   end
   
+  post '/sheet/:id/edit'
+    @character = Character.find(params[:id])
+    erb :edit 
+  end
+  
+  post '/sheet/:id/delete'
+    Character.destroy(params[:id])
+    redirect "/index"
+  end
   
   
 end
