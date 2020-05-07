@@ -33,15 +33,22 @@ class CharacterController < ApplicationController
     end
   end
   
-  post '/sheet/:id/edit'
+  post '/sheet/:id/edit' do
     @character = Character.find(params[:id])
     erb :edit 
   end
   
-  post '/sheet/:id/delete'
+  patch '/sheet/:id' do
+    @character = Character.find(params[:id])
+    @character.update(params)
+    redirect "/index"
+  end
+  
+  post '/sheet/:id/delete' do
     Character.destroy(params[:id])
     redirect "/index"
   end
+  
   
   
 end

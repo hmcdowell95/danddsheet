@@ -1,6 +1,7 @@
 <h1>Edit your Character</h1>
 
-<form action="/new" method="post">
+<form action="/sheet/<%=@character.id%>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
   Class Name<input type="text" name="class_name" value="<%=@character.class_name%>"><br>
   Name<input type="text" name="name" value="<%=@character.name%>"><br>
   Strength<input type="number" name="strength" min="3" max="20" value="<%=@character.strength%>"><br>
@@ -11,6 +12,6 @@
   Charisma<input type="number" name="charisma" min="3" max="20" value="<%=@character.charisma%>"><br>
   AC<input type="number" name="ac" value="<%=@character.ac%>"><br>
   Hit Points<input type="number" name="hit_points" value="<%=@character.hit_points%>"><br>
-  Other info<input type="text" name="info" size="1000" value="<%=@character.info%>"><br>
+  Other info<br><textarea name="info" rows="30" cols="100"><%=@character.info%></textarea><br>
   <input type="submit" value="Update">
 </form>
