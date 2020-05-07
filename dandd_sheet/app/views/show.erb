@@ -1,4 +1,4 @@
-<h1></h1>
+<h1>DnD charater sheet</h1>
 
   <li><%= @charater.class_name %></li><br>
   <li><%= @charater.name %></li><br>
@@ -11,3 +11,8 @@
   <li><%= @charater.ac %></li><br>
   <li><%= @charater.hit_points %></li><br>
   <li><%= @charater.info %></li><br>
+  <br>
+  <% if session[:user_id] == @charater.user.id%>
+  <form action="/sheet/<%=@charater.id%>/edit" method="post"><input type="submit" value="Edit"></form>
+  <form action="/sheet/<%=@character.id%>/delete" method="post"><input type="submit" value="Delete"></form>
+  <% end %>

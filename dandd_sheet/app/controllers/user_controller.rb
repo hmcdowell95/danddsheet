@@ -48,5 +48,16 @@ class UserController < ApplicationController
     session.clear
     redirect "/login"
   end
+   
+  get '/user/characters' do
+    if session[:user_id]
+      @user = User.find(session[:user_id])
+      @characters = @user.characters
+      erb :index
+    else
+      redirect "/login"
+    end
+  end
+  
   
 end
