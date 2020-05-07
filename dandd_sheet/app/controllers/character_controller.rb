@@ -11,5 +11,6 @@ class CharacterController < ApplicationController
   
   get "/new" do 
     
+  end
   
 end
