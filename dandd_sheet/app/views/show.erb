@@ -1,16 +1,16 @@
 <h1>DnD charater sheet</h1>
 
-  <p><%= @character.class_name %></p><br>
-  <p><%= @character.name %></p><br>
-  <p><%= @character.strength %></p><br>
-  <p><%= @character.dexterity %></p><br>
-  <p><%= @character.constitution %></p><br>
-  <p><%= @character.intelligence %></p><br>
-  <p><%= @character.wisdom %></p><br>
-  <p><%= @character.charisma %></p><br>
-  <p><%= @character.ac %></p><br>
-  <p><%= @character.hit_points %></p><br>
-  <p><%= @character.info %></p><br>
+  <p>Class:<%= @character.class_name %></p>
+  <p>Name:<%= @character.name %></p>
+  <p>Strength:<%= @character.strength %></p>
+  <p>Dexterity:<%= @character.dexterity %></p>
+  <p>Constitution:<%= @character.constitution %></p>
+  <p>Intelligence:<%= @character.intelligence %></p>
+  <p>Wisdom:<%= @character.wisdom %></p>
+  <p>Charisma:<%= @character.charisma %></p>
+  <p>AC:<%= @character.ac %></p>
+  <p>Hit Points:<%= @character.hit_points %></p>
+  <p>Info:<br><%= @character.info %></p>
   <br>
   <% if session[:user_id] == @character.user.id%>
   <form action="/sheet/<%=@character.id%>/edit" method="post"><input type="submit" value="Edit"></form>
