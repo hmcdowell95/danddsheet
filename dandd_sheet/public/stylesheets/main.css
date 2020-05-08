@@ -6,17 +6,13 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue;
-    color: #333;
-    font-family: Sans-Serif;
-    line-height: 18px;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQNBt_FRXZX2mp9vHo-6urf64RhtXx5FciQFmztKIagiNKHyAsk&usqp=CAU")
   }
 
   .wrapper {
     background: #fff;
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    box-shadow: 0 0 10px rgba(0,0,0,.3);
     margin: 16px auto;
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
@@ -25,6 +21,7 @@
 
   h1 {
     font-size: 36px;
+    text-decoration: underline;
     line-height: 54px;
   }
 
