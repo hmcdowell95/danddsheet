@@ -1,8 +1,8 @@
 <h1>Check out these character sheets</h1><form action="/logout" method="post"><input type="submit" value="Log Out"></form>
 <br>
-<h2>To Create a New character --></h2><a href="/new">Click Here!</a>
+<h2>To Create a New character</h2><a href="/new">Click Here!</a>
 <br>
-<h3>To View your characters --></h3><a href="/user/characters">Click Here!</a>
+<h2>To View your characters</h2><a href="/user/characters">Click Here!</a>
 <ul>
 <% @characters.each do |x| %>
   <li>Class Name: <%= x.class_name %></li>

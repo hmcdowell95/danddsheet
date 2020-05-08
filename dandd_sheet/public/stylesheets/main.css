@@ -38,7 +38,12 @@
   }
 
   p {
-    margin-bottom: 18px;
+    font-size: 30px;
+    margin-bottom: 14px;
+    font-family: "Satisfy";
   }
 
+  li {
+    font-size: 24px;
+  }
   
