@@ -20,7 +20,7 @@ class UserController < ApplicationController
   
   get '/login' do
     if session[:user_id]
-      redirect "/"
+      redirect "/index"
     else
       erb :login
     end
