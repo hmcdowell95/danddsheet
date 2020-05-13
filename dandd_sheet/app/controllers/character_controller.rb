@@ -20,12 +20,15 @@ class CharacterController < ApplicationController
   post '/new' do 
     @character = Character.new(params)
     @character.user = User.find(session[:user_id])
-    @character.save
-    redirect "/sheet/#{@character.id}"
+    if @character.save
+      redirect "/sheet/#{@character.id}"
+    else
+      redirect "/new"
+    end
   end
   
   get '/sheet/:id' do 
-    if session[:user_id]
+    if Character.find_by(id: params[:id]) && session[:user_id]
       @character = Character.find(params[:id])
       erb :show 
     else 
@@ -40,12 +43,17 @@ class CharacterController < ApplicationController
   
   post '/sheet/:id' do
     @character = Character.find(params[:id])
-    @character.update(params)
+    if session[:user_id] == @character.user.id
+      @character.update(params)
+    end
     redirect "/index"
   end
   
   post '/sheet/:id/delete' do
-    Character.destroy(params[:id])
+    @character = Character.find(params[:id])
+    if session[:user_id] == @character.user.id
+      Character.destroy(params[:id])
+    end
     redirect "/index"
   end
   

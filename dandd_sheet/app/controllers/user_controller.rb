@@ -9,8 +9,8 @@ class UserController < ApplicationController
   end
   
   post '/signup' do
-    if params[:password] != "" && params[:username] != ""
-      @user = User.create(params)
+    @user = User.new(params)
+    if @user.save
       session[:user_id] = @user.id
       redirect "/index"
     else
