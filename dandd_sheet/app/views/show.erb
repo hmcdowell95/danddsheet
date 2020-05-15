@@ -14,7 +14,7 @@
   <br>
   <% if session[:user_id] == @character.user.id%>
   <form action="/sheet/<%=@character.id%>/edit" method="post"><input type="submit" value="Edit"></form>
-  <form action="/sheet/<%=@character.id%>/delete" method="post"><input type="submit" value="Delete"></form>
+  <form action="/sheet/<%=@character.id%>/delete" method="post"><input type="hidden" name="_method" value="delete"><input type="submit" value="Delete"></form>
   <% end %>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Satisfy">
   

@@ -41,15 +41,16 @@ class CharacterController < ApplicationController
     erb :edit 
   end
   
-  post '/sheet/:id' do
+  patch '/sheet/:id' do
     @character = Character.find(params[:id])
-    if session[:user_id] == @character.user.id
+    if session[:user_id] == @character.user.id 
+      params.delete("_method")
       @character.update(params)
     end
     redirect "/index"
   end
   
-  post '/sheet/:id/delete' do
+  delete '/sheet/:id/delete' do
     @character = Character.find(params[:id])
     if session[:user_id] == @character.user.id
       Character.destroy(params[:id])
