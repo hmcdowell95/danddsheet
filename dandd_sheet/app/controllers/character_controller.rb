@@ -1,25 +1,19 @@
 class CharacterController < ApplicationController
   
+  
   get "/index" do 
-    if session[:user_id]
+      logged_in?
       @characters = Character.all
       erb :index
-    else 
-      redirect "/login"
-    end
   end
   
   get "/new" do 
-    if session[:user_id]
-      erb :new
-    else 
-      redirect "/login"
-    end
+    logged_in?
+    erb :new
   end
    
   post '/new' do 
-    @character = Character.new(params)
-    @character.user = User.find(session[:user_id])
+    @character = current_user.characters.new(params)
     if @character.save
       redirect "/sheet/#{@character.id}"
     else
@@ -28,22 +22,19 @@ class CharacterController < ApplicationController
   end
   
   get '/sheet/:id' do 
-    if Character.find_by(id: params[:id]) && session[:user_id]
-      @character = Character.find(params[:id])
-      erb :show 
-    else 
-      redirect "/login"
-    end
+    logged_in?
+    set_character
+    erb :show 
   end
   
   post '/sheet/:id/edit' do
-    @character = Character.find(params[:id])
+    set_character
     erb :edit 
   end
   
   patch '/sheet/:id' do
-    @character = Character.find(params[:id])
-    if session[:user_id] == @character.user.id 
+    set_character
+    if current_user.id == @character.user.id 
       params.delete("_method")
       @character.update(params)
     end
@@ -51,13 +42,17 @@ class CharacterController < ApplicationController
   end
   
   delete '/sheet/:id/delete' do
-    @character = Character.find(params[:id])
-    if session[:user_id] == @character.user.id
+    set_character
+    if current_user.id == @character.user.id
       Character.destroy(params[:id])
     end
     redirect "/index"
   end
   
+  private
   
+  def set_character
+    @character = Character.find(params[:id])
+  end
   
 end

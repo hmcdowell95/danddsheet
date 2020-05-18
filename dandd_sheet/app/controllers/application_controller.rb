@@ -8,7 +8,17 @@ class ApplicationController < Sinatra::Base
     enable :sessions
     set :session_secret, "password_security"
   end
-
+  
+  helpers do 
+    def logged_in?
+      if !session[:user_id]
+        redirect "/login"
+      end
+    end
+    def current_user
+      User.find(session[:user_id])
+    end
+  end
   get "/" do
     if session[:user_id]
       redirect "/index"
